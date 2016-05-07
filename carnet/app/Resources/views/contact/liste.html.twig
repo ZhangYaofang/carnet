@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <ul>
+    <a href="{{path('fos_user_security_login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+    <a href="{{path('fos_user_security_logout')}}"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+   </ul>
+
+    <h1>Mon carnet</h1>
+
+
+    <ul id="contacts">
+	{% for contact in contacts %}
+	 <li>
+           <div class="contact">
+	    <h2>
+	    <u><a href="{{ path('contact_show', { id: contact.id }) }}"> {{ contact.prenom}} {{contact.nom}} </a></u>
+            </h2>
+           </div>
+	 </li>
+
+        {% endfor %}
+    </ul>
+
+	<br/>
+        <a href={{ path('add_contact')}} class="btn btn-primary btn-lg" role="button">
+      Ajouter un nouveau cantact
+        </a>
+{% endblock %}

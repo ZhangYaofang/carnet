@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<h1>Mon carnet</h1>
+
+
+	<ul id="contacts">
+	{% for contact in contacts %}
+	    <li>
+		<div class="contact">
+		   <h2>
+			<u><a href="{{ path('contact_show', { id: contact.id }) }}">{{contact.id}} {{ contact.prenom}} {{contact.nom}} </a></u>
+			 
+                   </h2>
+            
+
+		</div>
+	    </li>
+
+        {% endfor %}
+        </ul>
+	<a href="{{path('fos_user_security_login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+
+{% endblock %}
